@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy JAR app to Azure Web App - Examen2as
 
 on:
@@ -21,8 +24,8 @@ jobs:
           java-version: '17'
           distribution: 'microsoft'
 
-      - name: Build with Maven (skip tests)
-        run: mvn clean install -DskipTests
+      - name: Build with Maven
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -49,9 +52,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C85AE2069C5E4CA9AA5CCA7F4598C0A2 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F125DA61FF9A4A33A69AE0DD19973FA3 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3629E121E54447BCA78A9757831E157E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_052A8BC1D2534619913D8848B96822FF }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_BD0C01DE94294685A3006809C3EB0F62 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7939F31C2F7D4300814C4BADDE415C29 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -60,3 +63,4 @@ jobs:
           app-name: 'Examen2as'
           slot-name: 'Production'
           package: '*.jar'
+          
